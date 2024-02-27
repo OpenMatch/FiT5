@@ -38,7 +38,6 @@ Use ./data/process_(train\dev\test).py to process the training set, validation s
   - global_batch size=gradient_accumulation_steps*number of GPUs=256 (The default value for per_gpu_micro_batch size is 1)
   - `retraining`: This indicates that a checkpoint needs to be loaded for training.
   - `num_global_layers`: It needs to be consistent with the first step.
-  - `relieve_CLS`为废弃参数可以忽略
   - `add_score`: Scores will be added during data processing, mapped to 101 numbers from 0 to 100. add_bin is in discrete bin form, and number_bin is a specific number used as the bin token (keep these parameters unchanged).
 
 Finally, use the results from 1500 steps as the final results.
