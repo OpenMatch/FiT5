@@ -24,8 +24,8 @@ Use ./data/process_(train\dev\test).py to process the training set, validation s
 
 ## FiT5 first step
 
-- 1.Prepare the scaled T5 model using ./development/model_fp16.py.
-- 2.Use ./scripts/t5_train_passage_from_condenser_ddp_two_dev.sh to obtain the initial model.
+- 1.Prepare the scaled T5 model using `python ./development/model_fp16.py`.
+- 2.Use `bash ./scripts/t5_train_passage_from_condenser_ddp_two_dev.sh` to obtain the initial model.
   - global_batch size=gradient_accumulation_steps*number of GPUs=16 (The default value for per_gpu_micro_batch size is 1)
   - `use_global`: Whether to use global attention.
   - `num_global_layers`: The last `num_global_layers` layers of the model use global attention.
@@ -34,7 +34,7 @@ Use ./data/process_(train\dev\test).py to process the training set, validation s
 ## FiT5 second step
 
 - 1.Obtain the best checkpoint through the first step..
-- 2.Use /command/t5_retrain_passage_from_condenser_ddp_two_dev.sh for retraining to learn a model that incorporates coCondenser score information.
+- 2.Use `bash ./scripts/t5_retrain_passage_from_condenser_ddp_two_dev.sh` for retraining to learn a model that incorporates coCondenser score information.
   - global_batch size=gradient_accumulation_steps*number of GPUs=256 (The default value for per_gpu_micro_batch size is 1)
   - `retraining`: This indicates that a checkpoint needs to be loaded for training.
   - `num_global_layers`: It needs to be consistent with the first step.
