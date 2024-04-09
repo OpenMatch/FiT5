@@ -58,3 +58,6 @@ TREC DL 19/20
 ```bash
 bash ./scripts/t5_inference_for_leader_trecdl.sh
 ```
+
+## Checkpoints
+FiT5-3layer: https://huggingface.co/OpenMatch/FiT5-msmarco
